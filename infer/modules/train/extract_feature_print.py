@@ -1,6 +1,11 @@
 import os
 import sys
 import traceback
+import torch
+from fairseq.data.dictionary import Dictionary
+
+torch.serialization.add_safe_globals([Dictionary])
+
 
 os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
 os.environ["PYTORCH_MPS_HIGH_WATERMARK_RATIO"] = "0.0"
